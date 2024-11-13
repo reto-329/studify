@@ -1,0 +1,1182 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background: #D9D9D9;
+}
+
+/* Base Styles */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #008080;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.header-img {
+    margin-left: 10px;
+}
+
+.header-div {
+    color: skyblue;
+    display: flex;
+    align-items: center;
+}
+
+.header-nav {
+    align-self: center;
+    display: flex;
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+.header-nav a {
+    text-decoration: none;
+    margin-left: 35px;
+    color: black;
+    font-weight: bold;
+}
+
+/* Hamburger Menu Icon */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #061B23;
+        position: absolute;
+        margin-top: 82px;
+        top: 60px;
+        left: 0;
+    }
+
+    .header-nav a {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        justify-content: space-between;
+    }
+}
+
+/* CSS for toggling the menu */
+.header-nav.active {
+    display: flex;
+}
+
+
+
+
+
+/* HEADING SECTION */
+
+.heading-section {
+    max-width: 85%; /* Adjust the max-width as needed */
+    margin: 0 auto;
+    padding: 20px; /* Optional: add padding for better appearance */
+    background-color: white;
+}
+
+.heading-section h3{
+    font-size: 35px;
+    width: 500px;
+    font-weight: 500;
+}
+
+.heading-section-div1 {
+    margin: 50px 50px; /* Adjust margin as needed */
+}
+
+.heading-section-div2 {
+    margin: 90px 50px 40px 50px; /* Adjust margin as needed */
+}
+
+.heading-section-div2 a {
+    text-decoration: none;
+    color: black;
+    border: 2px solid #D9D9D9;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.heading-section-div2 a:hover {
+    color: white;
+    border: 2px solid #D9D9D9;
+    background: skyblue;
+}
+
+
+
+
+
+
+
+
+.search-section {
+    max-width: 85%; /* Adjust the max-width as needed */
+    margin: 30px auto;
+    margin-top: 40px;
+}
+
+.search-section form {
+    display: flex;
+    flex-wrap: wrap; /* Allow the form elements to wrap */
+    gap: 10px; /* Add gap between elements */
+}
+
+.select2 {
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none; /* Remove default arrow for Safari */
+    -moz-appearance: none; /* Remove default arrow for Firefox */
+    background: white url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEwIDYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBvbHlnb24gcG9pbnRzPSIwLDAsMTAsMCw1LDYiIGZpbGw9ImJsYWNrIiAvPjwvc3ZnPg==') no-repeat right 10px center;
+    background-size: 16px; /* Adjust the size of the arrow */
+    padding-right: 40px; /* Add space for the arrow */
+    background-color: white; /* Explicitly set the background color */
+}
+
+
+.select1, .select2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px; /* Adjust the padding-right to ensure better fit */
+    font-size: 24px;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Add border radius for rounded corners */
+    flex: 1 1 200px; /* Flex properties to adjust width and prevent overflow */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width */
+}
+
+.search-section input[type="submit"], .submit {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 24px;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Add border radius for rounded corners */
+    background-color: #ccc; /* Button background color */
+    color: white; /* Button text color */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1 1 100px; /* Flex properties to adjust width and prevent overflow */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width */
+}
+
+.search-section input[type="submit"]:hover {
+    background-color: #008080; /* Button hover background color */
+}
+
+.submit:hover {
+    background-color: #008080; /* Button hover background color */
+}
+
+.ad-section {
+    margin: 3%; /* Remove any default margin */
+    padding: 3%; /* Remove any default padding */
+}
+
+.ad-section-div {
+    display: flex; /* Use flexbox for centering */    
+    justify-content: center; /* Center the image horizontally */
+
+}
+
+.ad-image {
+    width: 500%;
+}
+
+
+
+.footer {
+    background-color: #008080;
+    color: #ecf0f1;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    color: #ecf0f1;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 10px 0;
+}
+
+.footer-section ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact p {
+    padding-bottom: 5px;
+}
+
+.contact a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-section form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.footer-section form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e74c3c;
+    color: #ecf0f1;
+    cursor: pointer;
+}
+
+.footer-section form button:hover {
+    background-color: #c0392b;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #ecf0f1;
+    padding-top: 10px;
+}
+
+
+/* ABOUT PAGE */
+
+.about-section {
+    max-width: 85%; /* Adjust the max-width as needed */
+    margin: 0 auto;
+    margin-bottom: 30px; 
+    border-radius: 5px;
+}
+
+.about-section h3 {
+    margin-bottom: 50px;
+    color: #000;
+    font-size: 50px;
+    text-align: center;
+}
+
+.about-section p {
+    line-height: 1.6; /* Improved line-height for better readability */
+    letter-spacing: 1px;
+    padding: 20px;
+    font-weight: bolder;
+    color: black;
+}
+
+.ad-section1 {
+    max-width: 96%; /* Adjust the max-width as needed */
+    margin: 10px auto;
+}
+
+.ad-section-div1 {
+    padding: 267px;
+    border-radius: 20px;
+    background-image: url(images/wrapper.png);
+    background-size: contain; /* Ensure the background image covers the entire div */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+}
+
+.about-ad-section {
+    display: flex;
+    align-items: center; /* Center content vertically in the flex container */
+    justify-content: space-between; /* Ensure even spacing between items */
+}
+
+.ad-section2 {
+    max-width: 100%; /* Adjust the max-width as needed */
+}
+
+.ad-section2 img {
+    padding: 10px;
+    width: 600px; /* Fixed width for consistent layout */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.ad-section3 {
+    padding: 10px;
+    font-size: 17px;
+    line-height: 1.6; /* Consistent line height with .about-section p */
+    letter-spacing: 0.9px;
+    color: black;
+    font-weight: bolder;
+    align-self: center; /* Center align the text in the flex container */
+}
+
+
+
+/* SUCCESS MESSAGE */
+/* Styles for the success message section */
+.success-section {
+    text-align: center;
+    margin: 50px auto;
+    padding: 40px;
+    max-width: 600px;
+    background-color: #f4f9ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.success-section h2 {
+    color: #2e7d32; /* Green for success */
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.success-section p {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.success-section .button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.success-section .button:hover {
+    background-color: #0056b3;
+}
+
+
+/* REGISTRATION PAGE */
+.heading-section2 {
+    max-width: 85%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    padding: 40px;
+    background-color: white;
+}
+
+.heading-section2 h3 {
+    font-size: 40px;
+    width: 100%;
+    font-weight: 500;
+}
+
+.form-section {
+    max-width: 85%;
+    margin: 0 auto;
+    background-color: #F0FFF0; /* Updated to a pale cyan to match #008080 */
+    padding: 80px 70px 30px 70px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.form-section h3 {
+    margin-bottom: 40px;
+    color: #008080; /* Teal color for heading */
+    font-size: 48px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="email"],
+.form-group input[type="url"],
+.form-group input[type="password"],
+textarea {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 18px;
+    color: #008080; /* Changed input text color to teal for consistency */
+}
+
+.form-group textarea {
+    height: 150px;
+}
+
+.form-group {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.form-radio-group {
+    padding: 20px;
+    font-size: 22px;
+    color: #008080;
+}
+
+.form-check-group {
+    padding: 20px;
+    font-size: 22px;
+    color: #008080;
+}
+
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: white url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEwIDYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBvbHlnb24gcG9pbnRzPSIwLDAsMTAsMCw1LDYiIGZpbGw9ImJsYWNrIiAvPjwvc3ZnPg==') no-repeat right 10px center;
+    background-size: 16px;
+    padding-right: 40px;
+    background-color: white;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.btn {
+    border: 2px solid #008080;
+    color: #008080;
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.form-group label {
+    font-size: 20px;
+    color: #008080;
+    margin-left: 5px;
+}
+
+.form-group .button {
+    padding: 25px 80px;
+    border: none;
+    border-radius: 5px;
+    background-color: #008080;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-group .button:hover {
+    background-color: #006666;
+}
+
+.form-section-div {
+    text-align: center;
+}
+
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .form-section {
+        padding: 60px 50px;
+    }
+
+    .form-section h3 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-section {
+        padding: 40px 20px;
+    }
+
+    .form-section h3 {
+        font-size: 35px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="tel"],
+    .form-group input[type="email"],
+    .form-group input[type="url"],
+    .form-group input[type="password"],
+    .select-main2,
+    .form-group select,
+    textarea {
+        font-size: 16px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+
+    .form-group .button {
+        padding: 20px 50px;
+        font-size: 16px;
+    }
+
+    .select-group {
+        flex-direction: column;
+    }
+
+    .select-group .form-group {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .select-group .form-group:last-child {
+        margin-bottom: 10px;
+    }
+
+    .form-group label {
+        font-size: 18px;
+        color: #008080;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-section {
+        padding: 30px 10px;
+    }
+
+    .form-section h3 {
+        font-size: 30px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="tel"],
+    .form-group input[type="email"],
+    .form-group input[type="url"],
+    .form-group input[type="password"],
+    .select-main2,
+    .form-group select,
+    textarea {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+
+    .form-group .button {
+        padding: 15px 30px;
+        font-size: 14px;
+    }
+
+    .form-group label {
+        font-size: 16px;
+    }
+}
+
+
+/* LOGIN SECTION */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto 40px auto;
+    background: #ffffff;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%; /* Responsive width */
+    max-width: 500px; /* Max width for larger screens */
+}
+
+.login-container h3 {
+    font-size: 30px;
+}
+
+.toggle-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 40px auto 0px auto;
+    background: #ffffff;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Responsive width */
+    max-width: 500px; /* Max width for larger screens */
+}
+
+.toggle-buttons a{
+    font-size: 30px;
+}
+
+ .toggle-button {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    color: #000;
+}
+
+
+.toggle-button:hover {
+    background-color: #008080; /* Darker blue on hover */
+}
+
+/* Add active classes for the buttons */
+.toggle-button.active-tutor {
+    background-color: #e6f9e6; /* Green color when Tutor login is active */
+    color: #28a745;
+}
+
+.toggle-button.active-student {
+    background-color: #e6f9e6; /* Orange color when Student login is active */
+    color: #28a745;
+}
+
+/* Add active classes for the form container */
+.login-container.tutor-active {
+    background-color: #e6f9e6; /* Light green for Tutor form */
+}
+
+.login-container.student-active {
+    background-color: #e6f9e6; /* Light orange for Student form */
+}
+
+
+.login-form {
+    display: none; /* Hide forms initially */
+    width: 100%;
+}
+
+.login-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #218838;
+}
+
+@media (max-width: 400px) {
+    .login-container {
+        width: 90%; /* Slightly smaller margin */
+        margin: 20px;
+    }
+}
+
+
+
+/* STUDENT DASHBOARD PAGE */
+/* Dashboard container styling */
+.dashboard {
+    padding: 40px;
+    background-color: #f8faff;
+}
+
+.dashboard-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.dashboard-container h2 {
+    font-size: 2.5rem;
+    color: #2e7d32; /* Green to convey welcome */
+    margin-bottom: 10px;
+}
+
+.dashboard-container h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Dashboard card styling */
+.dashboard-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.dashboard-card h4 {
+    font-size: 1.4rem;
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+.dashboard-card p {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Link styling */
+.dashboard-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-card a:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #061B23;
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+
+    .header-nav.active {
+        display: flex;
+    }
+
+    .header-nav a {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+
+
+
+
+/* Responsive Styles for Heading Section */
+@media (max-width: 768px) {
+    .heading-section {
+        max-width: 100%;
+        padding: 15px; /* Adjust padding as needed */
+    }
+
+    .heading-section h3 {
+        font-size: 28px; /* Adjust font size as needed */
+        width: auto;
+    }
+
+    .heading-section-div1 {
+        margin: 30px 10px; /* Adjust margin as needed */
+    }
+
+    .heading-section-div2 {
+        margin: 60px 10px 30px 10px; /* Adjust margin as needed */
+    }
+
+    .heading-section-div2 a {
+        padding: 15px; /* Adjust padding as needed */
+        font-size: 24px; /* Adjust font size as needed */
+    }
+}
+
+
+
+
+
+/* Responsive Styles for Search Section */
+@media (max-width: 768px) {
+    .search-section {
+        max-width: 100%;
+        margin: 15px auto; /* Adjust margin as needed */
+        margin-top: 30px; /* Adjust margin-top as needed */
+    }
+
+    .search-section form {
+        flex-direction: column; /* Change direction to vertical */
+    }
+
+    .select1, .select2 {
+        padding: 15px; /* Adjust padding as needed */
+        font-size: 20px; /* Adjust font size as needed */
+        flex: 1 1 auto; /* Allow elements to grow */
+        width: auto; /* Allow elements to expand */
+    }
+
+    .search-section input[type="submit"], .submit {
+        padding: 15px; /* Adjust padding as needed */
+        font-size: 20px; /* Adjust font size as needed */
+        flex: 1 1 auto; /* Allow element to grow */
+        width: auto; /* Allow element to expand */
+    }
+}
+
+
+
+
+
+
+
+/* Responsive Styles for Ad Section */
+@media (max-width: 768px) {
+    .ad-section {
+        max-width: 100%;
+        margin: 15px auto; /* Adjust margin as needed */
+        margin-top: 60px; /* Adjust margin-top as needed */
+    }
+
+    .ad-section-div {
+        padding: 150px; /* Adjust padding as needed */
+        border-radius: 20px;
+        background-size: cover; /* Ensure the background image covers the entire div */
+        background-position: center; /* Center the background image */
+    }
+}
+
+
+
+
+
+
+/* Responsive Styles for Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        flex: 1 1 100%; /* Allow sections to take full width */
+        margin: 10px 0; /* Adjust margin as needed */
+        min-width: auto; /* Remove minimum width */
+    }
+
+    .footer-section h3 {
+        margin-bottom: 10px; /* Adjust margin as needed */
+        font-size: 24px; /* Adjust font size as needed */
+    }
+
+    .social-icons a {
+        margin: 0 5px; /* Adjust margin as needed */
+    }
+
+    .social-icons img {
+        width: 25px; /* Adjust image size as needed */
+        height: 25px; /* Adjust image size as needed */
+    }
+
+    .footer-section ul li {
+        margin: 5px 0; /* Adjust margin as needed */
+    }
+
+    .footer-section form input {
+        padding: 8px; /* Adjust padding as needed */
+        font-size: 16px; /* Adjust font size as needed */
+    }
+
+    .footer-section form button {
+        padding: 8px 15px; /* Adjust padding as needed */
+        font-size: 16px; /* Adjust font size as needed */
+    }
+
+    .footer-bottom {
+        margin-top: 10px; /* Adjust margin as needed */
+    }
+}
+
+
+
+/* Back link styling */
+.back-line {
+    display: inline-block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #56799e;
+    font-size: 20px;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s;
+}
+.back-line:hover {
+    border-bottom: 1px solid #56799e;
+}
+
+
+
+
+/* Responsive Styles for Registration Page */
+@media (max-width: 768px) {
+    .heading-section2 {
+        max-width: 100%;
+        margin: 0 auto;
+        margin-bottom: 30px; /* Adjust margin as needed */
+        padding: 20px; /* Adjust padding as needed */
+    }
+
+    .heading-section2 h3 {
+        font-size: 30px; /* Adjust font size as needed */
+    }
+
+    .form-section {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 40px 20px; /* Adjust padding as needed */
+        margin-bottom: 20px; /* Adjust margin as needed */
+    }
+
+    .form-section h3 {
+        margin-bottom: 30px; /* Adjust margin as needed */
+        font-size: 35px; /* Adjust font size as needed */
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="tel"],
+    .form-group input[type="email"],
+    .form-group input[type="url"],
+    .form-group input[type="password"],
+    .form-group select {
+        font-size: 18px; /* Adjust font size as needed */
+        padding: 15px; /* Adjust padding as needed */
+    }
+
+    .btn {
+        padding: 12px 18px; /* Adjust padding as needed */
+        font-size: 16px; /* Adjust font size as needed */
+    }
+
+    .form-group .button {
+        padding: 15px 30px; /* Adjust padding as needed */
+        font-size: 18px; /* Adjust font size as needed */
+    }
+
+    .form-group label {
+        font-size: 24px; /* Adjust font size as needed */
+        margin-left: 0; /* Adjust margin as needed */
+    }
+
+    .upload-btn-wrapper {
+        margin-bottom: 15px; /* Adjust margin as needed */
+    }
+
+    .form-group {
+        margin-bottom: 15px; /* Adjust margin as needed */
+    }
+
+    .form-group label {
+        font-size: 20px; /* Adjust font size as needed */
+    }
+}
+
+@media (max-width: 480px) {
+    .heading-section2 h3 {
+        font-size: 25px; /* Adjust font size as needed */
+    }
+
+    .form-section h3 {
+        font-size: 30px; /* Adjust font size as needed */
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="tel"],
+    .form-group input[type="email"],
+    .form-group input[type="url"],
+    .form-group input[type="password"],
+    .form-group select {
+        font-size: 16px; /* Adjust font size as needed */
+        padding: 12px; /* Adjust padding as needed */
+    }
+
+    .btn {
+        padding: 10px 15px; /* Adjust padding as needed */
+        font-size: 14px; /* Adjust font size as needed */
+    }
+
+    .form-group .button {
+        padding: 12px 25px; /* Adjust padding as needed */
+        font-size: 16px; /* Adjust font size as needed */
+    }
+
+    .form-group label {
+        font-size: 20px; /* Adjust font size as needed */
+    }
+}
+
+
+
+
+
+
+/* Responsive Styles for About Section */
+@media (max-width: 768px) {
+    .about-section {
+        max-width: 100%;
+        padding: 20px; /* Adjust padding as needed */
+    }
+
+    .about-section h3 {
+        font-size: 35px; /* Adjust font size as needed */
+    }
+
+    .about-section p {
+        padding: 10px; /* Adjust padding as needed */
+        font-size: 16px; /* Adjust font size as needed */
+    }
+
+    .ad-section1 {
+        max-width: 100%;
+        margin: 10px auto;
+    }
+
+    .ad-section-div1 {
+        padding: 150px; /* Adjust padding as needed */
+    }
+
+    .about-ad-section {
+        flex-direction: column; /* Change direction to vertical */
+    }
+
+    .ad-section2 img {
+        width: 100%; /* Adjust image width */
+        height: auto; /* Ensure aspect ratio is maintained */
+        padding: 10px 0; /* Adjust padding as needed */
+    }
+
+    .ad-section3 {
+        padding: 10px; /* Adjust padding as needed */
+        font-size: 14px; /* Adjust font size as needed */
+    }
+}
+
+
+
+
+

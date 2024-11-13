@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::Studify Login Page::</title> 
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-div">
+            <a href="/"><img src="images/image.png" alt="Logo" width="200px" class="header-img"></a>
+        </div>
+
+        <nav class="header-nav">
+            <a href="/about">About Us</a>
+            <a href="/student-registration">Student</a>
+            <a href="/tutor-registration">Tutor</a>
+            <a href="/login">Login</a>
+            <a href="/listed">Get Your Study Group Listed</a>
+        </nav>
+
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <script>
+        // js/script.js
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const hamburger = document.querySelector('.hamburger');
+                const navMenu = document.querySelector('.header-nav');
+
+                hamburger.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+            });
+
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tutorForm = document.getElementById('tutor-login-form');
+            const studentForm = document.getElementById('student-login-form');
+            const tutorButton = document.getElementById('tutor-button');
+            const studentButton = document.getElementById('student-button');
+            const loginContainer = document.querySelector('.login-container'); // Select the login container
+
+            tutorButton.addEventListener('click', () => {
+                tutorForm.style.display = 'block';
+                studentForm.style.display = 'none';
+                
+                // Set active class for Tutor button and form
+                tutorButton.classList.add('active-tutor');
+                studentButton.classList.remove('active-student');
+                loginContainer.classList.add('tutor-active');
+                loginContainer.classList.remove('student-active');
+            });
+
+            studentButton.addEventListener('click', () => {
+                studentForm.style.display = 'block';
+                tutorForm.style.display = 'none';
+                
+                // Set active class for Student button and form
+                studentButton.classList.add('active-student');
+                tutorButton.classList.remove('active-tutor');
+                loginContainer.classList.add('student-active');
+                loginContainer.classList.remove('tutor-active');
+            });
+
+            // Show the tutor form by default
+            tutorForm.style.display = 'block';
+            tutorButton.classList.add('active-tutor'); // Set the default active button color
+            loginContainer.classList.add('tutor-active'); // Set the default background for the Tutor form
+        });
+    </script>
+
+    
+    <section class="heading-section2">
+        <div class="heading-section-div1">
+            <h3>We Connect Students with Study Groups and Tutors.</h3>
+        </div>
+    </section>
+
+    <div class="toggle-buttons">
+        <a  class="toggle-button" id="tutor-button">Tutor Login</a>
+        <a  class="toggle-button" id="student-button">Student Login</a>
+    </div>
+
+    <section class="login-container">
+        
+        
+
+        <div class="login-form" id="tutor-login-form">
+            <h3>Tutor Login</h3>
+            <form action="/tutor-login" method="post">
+                <div class="form-group">
+                    <input type="email" name="tutorEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="tutorPassword" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Login as Tutor" class="button">
+                </div>
+                <p style="text-align:center;"><a href="#">Forgot Password?</a></p>
+            </form>
+        </div>
+
+        <div class="login-form" id="student-login-form">
+            <h3>Student Login</h3>
+            <form action="/student-login" method="post">
+                <div class="form-group">
+                    <input type="email" name="studentEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="studentPassword" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Login as Student" class="button">
+                </div>
+                <p style="text-align:center;"><a href="#">Forgot Password?</a></p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section connect">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="images/facebook.svg" alt="Facebook">
+                    </a>
+                    <a href="https://www.whatsapp.com" target="_blank">
+                        <img src="images/whatsapp.svg" alt="WhatsApp">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="images/instagram.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <img src="images/x-twitter.svg" alt="Twitter">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+                <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+                <p>Address: 123 Example St, City, Country</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Get Your Service Listed</a></li>
+                </ul>
+            </div>
+            <div class="footer-section subscribe">
+                <h3>Subscribe to Our Newsletter</h3>
+                <form action="#" method="post">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Reto Tech. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

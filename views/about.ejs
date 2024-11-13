@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::About Us Page::</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <header class="header">
+        
+        <div class="header-div">
+            <a href="/"><img src="images/image.png" alt="Logo" width="200px" class="header-img"></a>
+        </div>
+
+        <nav class="header-nav">
+            <a href="/about">About Us</a>
+            <a href="/student-registration">Student</a>
+            <a href="/tutor-registration">Tutor</a>
+            <a href="/login">Login</a>
+            <a href="/listed">Get Your Study Group Listed</a>
+        </nav>
+
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <script>
+        // js/script.js
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const hamburger = document.querySelector('.hamburger');
+                const navMenu = document.querySelector('.header-nav');
+
+                hamburger.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+            });
+
+    </script>
+    
+
+    <section class="heading-section2">
+        <div class="heading-section-div1">
+            <h3>We Connect Students with Study Groups and Tutors.</h3>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <h3>About Us</h3>
+    
+        <div class="about-ad-section">
+            <div class="ad-section2">  
+                <img src="images/2.jfif" alt="">
+            </div>
+            <div class="ad-section3">
+                <span>
+                    <p>
+                        In a world where education plays a pivotal role in shaping futures, the need for effective collaboration among students has never been more crucial. Studify is designed to connect learners across Nigeria, helping them find study partners and form study groups that cater to their academic needs.
+                    </p>
+                    <p> 
+                        With Nigeria's fast-growing population of over 220 million, many students face challenges in finding the right resources and support for their studies. Studify aims to address this issue by fostering a collaborative learning environment that enhances academic performance and promotes knowledge sharing among peers.
+                    </p>
+                </span>
+            </div>
+        </div>
+        
+        <div class="about-section-div1">
+            <p>
+                Recognizing the need for an organized platform to facilitate peer-to-peer learning, Studify emphasizes the importance of collaboration in achieving academic success. Our goal is to empower students by providing them with tools to connect, share resources, and support each other in their studies.
+                By joining forces with educational institutions and leveraging modern technology, Studify is dedicated to enhancing the learning experience for students across the nation. Our commitment to fostering a community of learners ensures that every student has access to the support they need to excel academically and reach their full potential.
+            </p>
+        </div>
+        
+        <div>
+            <p>
+                Many educational platforms focus solely on course content, but Studify goes a step further by facilitating connections between students. Through our innovative study group finder feature, learners can easily create or join groups based on their subjects, interests, and study preferences.
+                This initiative promotes a culture of collaboration and collective learning, helping students feel more connected and supported in their educational journey. By harnessing the power of technology, Studify is revolutionizing the way students study together, ensuring no one feels isolated in their academic pursuits.
+            </p>
+        </div>
+    </section>
+    
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section connect">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="images/facebook.svg" alt="Facebook">
+                    </a>
+                    <a href="https://www.whatsapp.com" target="_blank">
+                        <img src="images/whatsapp.svg" alt="WhatsApp">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="images/instagram.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <img src="images/x-twitter.svg" alt="Twitter">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+                <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+                <p>Address: 123 Example St, City, Country</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Get Your Service Listed</a></li>
+                </ul>
+            </div>
+            <div class="footer-section subscribe">
+                <h3>Subscribe to Our Newsletter</h3>
+                <form action="#" method="post">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Reto Tech. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
