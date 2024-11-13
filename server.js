@@ -16,10 +16,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // Database connection
-mongoose.connect("mongodb://127.0.0.1:27017/studifyAPP", {
+const mongoose = require('mongoose');
+
+// Replace with your MongoDB Atlas connection string
+const mongoDBUri = "mongodb+srv://reromotabele4love:CHaysbv5o9vMd0h8@cluster0.eixnu.mongodb.net/studify-app";
+
+mongoose.connect(mongoDBUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-});
+})
+    .then(() => console.log("Connected to MongoDB Atlas"))
+    .catch((error) => console.error("Error connecting to MongoDB Atlas:", error));
+
+
 
 // Session middleware
 app.use(session({
