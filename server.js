@@ -30,7 +30,6 @@ mongoose.connect(mongoDBUri, {
 
 
 // Session middleware
-const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
 // Session middleware
