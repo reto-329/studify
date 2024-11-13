@@ -691,4 +691,4 @@ app.post('/edit-student-profile', async (req, res) => {
 
 
 // Start the server
-app.listen(2500, () => console.log("Server started on port 2500"));
+app.listen(process.env || port, () => console.log("Listening on port $(port)"));
