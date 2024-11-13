@@ -30,11 +30,19 @@ mongoose.connect(mongoDBUri, {
 
 
 // Session middleware
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+
 app.use(session({
-    secret: 'mysecretkey',
-    resave: true,
-    saveUninitialized: true
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: mongoDBUri,
+        collectionName: 'sessions'
+    })
 }));
+
 
 // Flash messages middleware
 app.use(flash());
