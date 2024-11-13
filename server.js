@@ -30,14 +30,17 @@ mongoose.connect(mongoDBUri, {
 
 
 // Session middleware
-const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo'); // Make sure this is declared once
 
-// Session middleware
 app.use(session({
     secret: 'mysecretkey',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store: MongoStore.create({
+        mongoUrl: mongoDBUri // Replace `mongoDBUri` with your actual MongoDB URI
+    })
 }));
+
 
 // Flash messages middleware
 app.use(flash());
