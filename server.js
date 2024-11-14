@@ -1,4 +1,4 @@
-require('dotenv').config(); // Load environment variables from .env file
+require('dotenv').config();
 
 const express = require("express"),
     ejs = require("ejs"),
@@ -10,6 +10,7 @@ const express = require("express"),
     nodemailer = require('nodemailer'),
     flash = require('connect-flash'),
     path = require("path"),
+    MongoStore = require('connect-mongo'), // moved to ensure it's accessible here
     app = express();
 
 // Setting up the view engine and static files
@@ -18,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // Database connection
-const mongoDBUri = process.env.MONGODB_URI; // Use environment variable
+const mongoDBUri = process.env.MONGODB_URI;
 
 mongoose.connect(mongoDBUri, {
     useNewUrlParser: true,
@@ -27,15 +28,13 @@ mongoose.connect(mongoDBUri, {
     .then(() => console.log("Connected to MongoDB Atlas"))
     .catch((error) => console.error("Error connecting to MongoDB Atlas:", error));
 
-// Session middleware
-const MongoStore = require('connect-mongo');
-
+// Session middleware with explicit mongoUrl
 app.use(session({
-    secret: process.env.SESSION_SECRET, // Use environment variable for session secret
+    secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: true,
     store: MongoStore.create({
-        mongoUrl: mongoDBUri // Use environment variable for MongoDB URI
+        mongoUrl: mongoDBUri // Explicitly passing mongoUrl here
     })
 }));
 
@@ -46,6 +45,7 @@ app.use((req, res, next) => {
     res.locals.error_msg = req.flash('error_msg');
     next();
 });
+
 // Defining tutor and student schemas
 const tutorSchema = new mongoose.Schema({
     fullName: String,
