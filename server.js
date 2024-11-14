@@ -8,8 +8,6 @@ const express = require("express"),
     bcrypt = require("bcryptjs"),
     fs = require("fs"),
     nodemailer = require('nodemailer'),
-    mongoStore = require('connect-mongo'),
-    MongoClient = require('mongodb').MongoClient;
     flash = require('connect-flash'),
     path = require("path"),
     app = express();
@@ -29,19 +27,16 @@ mongoose.connect(mongoDBUri, {
     .then(() => console.log("Connected to MongoDB Atlas"))
     .catch((error) => console.error("Error connecting to MongoDB Atlas:", error));
 
-const clientPromise = MongoClient.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
-
 // Session middleware
+const MongoStore = require('connect-mongo');
+
 app.use(session({
-    store: mongoStore.create({
-        clientPromise: clientPromise // Use the clientPromise
-    }),
-    secret: 'yourSecret',
-    resave: false,
-    saveUninitialized: true
+    secret: process.env.SESSION_SECRET, // Use environment variable for session secret
+    resave: true,
+    saveUninitialized: true,
+    store: MongoStore.create({
+        mongoUrl: mongoDBUri // Use environment variable for MongoDB URI
+    })
 }));
 
 // Flash messages middleware
@@ -51,7 +46,6 @@ app.use((req, res, next) => {
     res.locals.error_msg = req.flash('error_msg');
     next();
 });
-
 // Defining tutor and student schemas
 const tutorSchema = new mongoose.Schema({
     fullName: String,
