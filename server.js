@@ -37,13 +37,12 @@ const clientPromise = MongoClient.connect(process.env.MONGODB_URI, {
 // Session middleware
 app.use(session({
     store: mongoStore.create({
-        mongoUrl: process.env.MONGODB_URI
+        clientPromise: clientPromise // Use the clientPromise
     }),
     secret: 'yourSecret',
     resave: false,
     saveUninitialized: true
 }));
-
 
 // Flash messages middleware
 app.use(flash());
