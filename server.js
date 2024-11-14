@@ -1,25 +1,18 @@
 require('dotenv').config();
-
 const express = require("express"),
     ejs = require("ejs"),
     mongoose = require("mongoose"),
-    multer = require("multer"),
     session = require('express-session'),
-    bcrypt = require("bcryptjs"),
-    fs = require("fs"),
-    nodemailer = require('nodemailer'),
-    flash = require('connect-flash'),
-    path = require("path"),
-    MongoStore = require('connect-mongo'), // moved to ensure it's accessible here
+    MongoStore = require('connect-mongo'),
     app = express();
 
-// Setting up the view engine and static files
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // Database connection
-const mongoDBUri = process.env.MONGODB_URI;
+const mongoDBUri = process.env.MONGODB_URI || "mongodb+srv://reromotabele4love:CHaysbv5o9vMd0h8@cluster0.eixnu.mongodb.net/studify-app";
+console.log("MongoDB URI:", mongoDBUri);
 
 mongoose.connect(mongoDBUri, {
     useNewUrlParser: true,
@@ -28,23 +21,14 @@ mongoose.connect(mongoDBUri, {
     .then(() => console.log("Connected to MongoDB Atlas"))
     .catch((error) => console.error("Error connecting to MongoDB Atlas:", error));
 
-// Session middleware with explicit mongoUrl
 app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET || 'mysecretkey',
     resave: true,
     saveUninitialized: true,
     store: MongoStore.create({
-        mongoUrl: mongoDBUri // Explicitly passing mongoUrl here
+        mongoUrl: mongoDBUri
     })
 }));
-
-// Flash messages middleware
-app.use(flash());
-app.use((req, res, next) => {
-    res.locals.message = req.flash('message');
-    res.locals.error_msg = req.flash('error_msg');
-    next();
-});
 
 // Defining tutor and student schemas
 const tutorSchema = new mongoose.Schema({
