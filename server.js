@@ -2,8 +2,14 @@ require('dotenv').config();
 const express = require("express"),
     ejs = require("ejs"),
     mongoose = require("mongoose"),
+    multer = require("multer"),
     session = require('express-session'),
-    MongoStore = require('connect-mongo'),
+    bcrypt = require("bcryptjs"),
+    fs = require("fs"),
+    nodemailer = require('nodemailer'),
+    flash = require('connect-flash'),
+    path = require("path"),
+    MongoStore = require('connect-mongo'), // moved to ensure it's accessible here
     app = express();
 
 app.set("view engine", "ejs");
