@@ -34,15 +34,6 @@ const clientPromise = MongoClient.connect(process.env.MONGODB_URI, {
     useUnifiedTopology: true
 });
 
-app.use(session({
-    store: MongoStore.create({
-        clientPromise: clientPromise
-    }),
-    secret: 'yourSecret',
-    resave: false,
-    saveUninitialized: true
-}));
-
 // Session middleware
 app.use(session({
     store: mongoStore.create({
