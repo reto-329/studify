@@ -1,0 +1,152 @@
+/* Main container styling */
+main {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    padding: 0 15px;
+}
+
+.header-nav a {
+    font-size: 16px;
+    padding: 10px;
+}
+
+.search-section {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    width: 70%;
+    max-width: 800px;
+    border-radius: 5px;
+}
+
+.search-section form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; /* Gap for space between elements */
+}
+
+.select1 {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit:hover {
+    background-color: #0056b3;
+}
+
+.results-section {
+    width: 80%;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.study-group-card {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.study-group-card h4 {
+    font-size: 20px;
+    color: #333;
+}
+
+.study-group-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.study-group-card a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.study-group-card a:hover {
+    text-decoration: underline;
+}
+
+/* Profile image styling */
+.group-profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main, .search-section, .results-section {
+        width: 90%;
+    }
+
+    .search-section form {
+        flex-direction: column;
+    }
+
+    .select1, .submit {
+        width: 100%;
+    }
+
+    .study-group-card {
+        padding: 15px;
+    }
+
+    .header-nav a {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px 0;
+    }
+
+    .study-group-card h4 {
+        font-size: 18px;
+    }
+
+    .study-group-card p {
+        font-size: 13px;
+    }
+}

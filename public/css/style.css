@@ -1,0 +1,509 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background: #D9D9D9;
+}
+
+/* Base Styles */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #008080;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.header-img {
+    margin-left: 10px;
+}
+
+.header-div {
+    color: skyblue;
+    display: flex;
+    align-items: center;
+}
+
+.header-nav {
+    align-self: center;
+    display: flex;
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+.header-nav a {
+    text-decoration: none;
+    margin-left: 35px;
+    color: black;
+    font-weight: bold;
+}
+
+/* Hamburger Menu Icon */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #061B23;
+        position: absolute;
+        margin-top: 82px;
+        top: 60px;
+        left: 0;
+    }
+
+    .header-nav a {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        justify-content: space-between;
+    }
+}
+
+/* CSS for toggling the menu */
+.header-nav.active {
+    display: flex;
+}
+
+
+
+
+
+/* HEADING SECTION */
+
+.heading-section {
+    max-width: 85%; /* Adjust the max-width as needed */
+    margin: 0 auto;
+    padding: 20px; /* Optional: add padding for better appearance */
+    background-color: white;
+}
+
+.heading-section h3{
+    font-size: 35px;
+    width: 500px;
+    font-weight: 500;
+}
+
+.heading-section-div1 {
+    margin: 50px 50px; /* Adjust margin as needed */
+}
+
+.heading-section-div2 {
+    margin: 90px 50px 40px 50px; /* Adjust margin as needed */
+}
+
+.heading-section-div2 a {
+    text-decoration: none;
+    color: black;
+    border: 2px solid #D9D9D9;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.heading-section-div2 a:hover {
+    color: white;
+    border: 2px solid #D9D9D9;
+    background: skyblue;
+}
+
+/* REG HEAD */
+.heading-section2 {
+    max-width: 85%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    padding: 40px;
+    background-color: white;
+}
+
+.heading-section2 h3 {
+    font-size: 40px;
+    width: 100%;
+    font-weight: 500;
+}
+
+
+
+/* SEARCH SECTION */
+.search-section {
+    max-width: 85%; /* Adjust the max-width as needed */
+    margin: 30px auto;
+    margin-top: 40px;
+}
+
+.search-section form {
+    display: flex;
+    flex-wrap: wrap; /* Allow the form elements to wrap */
+    gap: 10px; /* Add gap between elements */
+}
+
+.select2 {
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none; /* Remove default arrow for Safari */
+    -moz-appearance: none; /* Remove default arrow for Firefox */
+    background: white url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEwIDYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBvbHlnb24gcG9pbnRzPSIwLDAsMTAsMCw1LDYiIGZpbGw9ImJsYWNrIiAvPjwvc3ZnPg==') no-repeat right 10px center;
+    background-size: 16px; /* Adjust the size of the arrow */
+    padding-right: 40px; /* Add space for the arrow */
+    background-color: white; /* Explicitly set the background color */
+}
+
+
+.select1, .select2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px; /* Adjust the padding-right to ensure better fit */
+    font-size: 24px;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Add border radius for rounded corners */
+    flex: 1 1 200px; /* Flex properties to adjust width and prevent overflow */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width */
+}
+
+.search-section input[type="submit"], .submit {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 24px;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Add border radius for rounded corners */
+    background-color: #ccc; /* Button background color */
+    color: white; /* Button text color */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1 1 100px; /* Flex properties to adjust width and prevent overflow */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width */
+}
+
+.search-section input[type="submit"]:hover {
+    background-color: #008080; /* Button hover background color */
+}
+
+.submit:hover {
+    background-color: #008080; /* Button hover background color */
+}
+
+.ad-section {
+    margin: 3%; /* Remove any default margin */
+    padding: 3%; /* Remove any default padding */
+}
+
+.ad-section-div {
+    display: flex; /* Use flexbox for centering */    
+    justify-content: center; /* Center the image horizontally */
+
+}
+
+.ad-image {
+    width: 500%;
+}
+
+
+
+.footer {
+    background-color: #008080;
+    color: #ecf0f1;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    color: #ecf0f1;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 10px 0;
+}
+
+.footer-section ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact p {
+    padding-bottom: 5px;
+}
+
+.contact a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-section form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.footer-section form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e74c3c;
+    color: #ecf0f1;
+    cursor: pointer;
+}
+
+.footer-section form button:hover {
+    background-color: #c0392b;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #ecf0f1;
+    padding-top: 10px;
+}
+
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+    .header {
+        background-color: #008080;
+    }
+
+    .header-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #ccc;
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+
+    .header-nav.active {
+        display: flex;
+    }
+
+    .header-nav a {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+
+
+
+
+/* Responsive Styles for Heading Section */
+@media (max-width: 768px) {
+    .heading-section {
+        max-width: 100%;
+        padding: 15px; /* Adjust padding as needed */
+    }
+
+    .heading-section h3 {
+        font-size: 25px; /* Adjust font size as needed */
+        width: auto;
+    }
+
+    .heading-section-div1 {
+        margin: 30px 10px; /* Adjust margin as needed */
+    }
+
+    .heading-section-div2 {
+        margin: 60px 10px 30px 10px; /* Adjust margin as needed */
+    }
+    
+
+    .heading-section-div2 a {
+        padding: 15px; /* Adjust padding as needed */
+        font-size: 20px; /* Adjust font size as needed */
+    }
+}
+
+
+
+
+
+/* Responsive Styles for Search Section */
+@media (max-width: 768px) {
+    .search-section {
+        max-width: 100%;
+        margin: 15px auto; /* Adjust margin as needed */
+        margin-top: 30px; /* Adjust margin-top as needed */
+    }
+
+    .search-section form {
+        flex-direction: column; /* Change direction to vertical */
+    }
+
+    .select1, .select2 {
+        padding: 15px; /* Adjust padding as needed */
+        font-size: 20px; /* Adjust font size as needed */
+        flex: 1 1 auto; /* Allow elements to grow */
+        width: auto; /* Allow elements to expand */
+    }
+
+    .search-section input[type="submit"], .submit {
+        padding: 15px; /* Adjust padding as needed */
+        font-size: 20px; /* Adjust font size as needed */
+        flex: 1 1 auto; /* Allow element to grow */
+        width: auto; /* Allow element to expand */
+    }
+}
+
+
+/* Responsive Styles for Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        flex: 1 1 100%; /* Allow sections to take full width */
+        margin: 10px 0; /* Adjust margin as needed */
+        min-width: auto; /* Remove minimum width */
+    }
+
+    .footer-section h3 {
+        margin-bottom: 10px; /* Adjust margin as needed */
+        font-size: 24px; /* Adjust font size as needed */
+    }
+
+    .social-icons a {
+        margin: 0 5px; /* Adjust margin as needed */
+    }
+
+    .social-icons img {
+        width: 25px; /* Adjust image size as needed */
+        height: 25px; /* Adjust image size as needed */
+    }
+
+    .footer-section ul li {
+        margin: 5px 0; /* Adjust margin as needed */
+    }
+
+    .footer-section form input {
+        padding: 8px; /* Adjust padding as needed */
+        font-size: 16px; /* Adjust font size as needed */
+    }
+
+    .footer-section form button {
+        padding: 8px 15px; /* Adjust padding as needed */
+        font-size: 16px; /* Adjust font size as needed */
+    }
+
+    .footer-bottom {
+        margin-top: 10px; /* Adjust margin as needed */
+    }
+}
+
+
+/* Back link styling */
+.back-line {
+    display: inline-block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #56799e;
+    font-size: 20px;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s;
+}
+.back-line:hover {
+    border-bottom: 1px solid #56799e;
+}
+
+
+/* Responsive Styles for heading in Registration Page */
+@media (max-width: 768px) {
+    .heading-section2 {
+        max-width: 100%;
+        margin: 0 auto;
+        margin-bottom: 30px; /* Adjust margin as needed */
+        padding: 20px; /* Adjust padding as needed */
+    }
+
+    .heading-section2 h3 {
+        font-size: 30px; /* Adjust font size as needed */
+    }
+
+}
+
+@media (max-width: 480px) {
+    .heading-section2 h3 {
+        font-size: 25px; /* Adjust font size as needed */
+    }
+}

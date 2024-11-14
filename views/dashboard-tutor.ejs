@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::Studify Tutor Dashboard::</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/about.css"> -->
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- <link rel="stylesheet" href="css/reg.css"> -->
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
+</head>
+<body>
+    
+    <header class="header">
+        <div class="header-div">
+            <img src="images/image.png" alt="Logo" width="200px" class="header-img">
+        </div>
+        
+        <nav class="header-nav">
+            <a href="/dashboard-student">Dashboard</a>
+            <a href="/study-group">Get Your Study Group Listed</a>
+            <a href="/logout">Logout</a>
+        </nav>
+
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <section class="dashboard">
+        <div class="dashboard-container">
+            <h2>Welcome to Tutor <span style="color: brown;"><%= tutor.fullName %></span></h2>
+            <h3>Tutor Dashboard</h3>
+            <div class="dashboard-card">
+                <h4>Your Profile</h4>
+                <p>Name: <%= tutor.fullName %></p>
+                <p>Email: <%= tutor.email %></p>
+                <p>Subjects: <%= tutor.subjects %></p>
+                <p>Mode: <%= tutor.tutoringMode %></p>
+                <a href="/edit-tutor-profile">Edit Profile</a>
+            </div>
+            <div class="dashboard-card">
+                <h4>Upcoming Tutoring Sessions</h4>
+                <p>No sessions scheduled yet.</p>
+                <a href="/schedule-session">Schedule a New Session</a>
+            </div>
+            
+            
+            
+            <script>
+                function handleRequest(requestId, action) {
+                    fetch(`/join-request/${requestId}/${action}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert(`Request ${action}ed successfully.`);
+                            location.reload(); // Refresh to show updated requests
+                        } else {
+                            alert('Failed to update request status.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred while updating the request.');
+                    });
+                }
+            </script>
+
+            <div class="dashboard-card">
+                <% if (message) { %>
+                    <p class="message"><%= message %></p>
+                <% } %>
+                <% if (error_msg) { %>
+                    <p class="error"><%= error_msg %></p>
+                <% } %>
+
+                
+                <h4>Your Study Groups</h4>
+                <!-- Placeholder for the study groups list -->
+                <% if (studyGroups.length === 0) { %>
+                    <p>No study groups created yet.</p>
+                <% } else { %>
+                    <ul>
+                        <% studyGroups.forEach(function(group) { %>
+                            <li>
+                                <strong>Group Name:</strong> <%= group.groupName %> <br>
+                                <strong>Subjects:</strong> <%= group.subjects.join(", ") %> <br>
+                                <strong>Capacity:</strong> <%= group.capacity %> <br>
+                                <a href="/study-group/<%= group._id %>/edit">View Group</a>
+
+                            </li>
+                            <br>
+                        <% }); %>
+                    </ul>                    
+                <% } %>
+                <a href="/study-group">Create a New Study Group</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section connect">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="images/facebook.svg" alt="Facebook">
+                    </a>
+                    <a href="https://www.whatsapp.com" target="_blank">
+                        <img src="images/whatsapp.svg" alt="WhatsApp">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="images/instagram.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <img src="images/x-twitter.svg" alt="Twitter">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+                <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+                <p>Address: 123 Example St, City, Country</p>
+            </div>
+            <div class="footer-section subscribe">
+                <h3>Subscribe to Our Newsletter</h3>
+                <form action="#" method="post">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Studify. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

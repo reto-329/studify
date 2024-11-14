@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::Search Result Page::</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-div">
+            <img src="images/image.png" alt="Logo" width="200px" class="header-img">
+        </div>
+
+        <nav class="header-nav">
+            <a href="/dashboard-student">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </nav>
+
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.header-nav');
+
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        });
+    </script>
+
+    <main>
+        <section class="search-section">
+            <div>
+                <form action="/search2" method="post">
+                    <input type="text" name="subject" placeholder="Type a Subject" class="select1">
+                    <input type="submit" value="Search" class="submit">
+                </form>
+            </div>
+        </section>
+
+        
+    
+        <div class="results-section">
+            <% if (studyGroups.length > 0) { %>
+                <% studyGroups.forEach(group => { %>
+                    <div class="study-group-card">
+                        
+                        <img src="<%= path + '/' + group.groupProfilePicture.filename %>" class="group-profile-image" alt="Group Image">
+                        
+                        <h4><%= group.groupName %></h4>
+                        <p><strong>Tutor:</strong> <%= group.tutorName %></p>
+                        <p><strong>Subjects:</strong> <%= group.subjects.join(', ') %></p>
+                        <p><strong>Capacity:</strong> <%= group.capacity %></p>
+                        <a href="#" class="join-btn" data-group-id="<%= group.id %>">JOIN</a>
+
+
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>No study groups found for this subject. Try another search.</p>
+            <% } %>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.join-btn').forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const groupId = this.getAttribute('data-group-id');
+    
+                    // Collect student details (Example: student ID or other info)
+                    const studentId = 'student-id';  // Replace with actual student data (e.g., from a session variable or user object)
+                    const studentName = 'student-name';  // Replace with actual student name or other detail
+                    
+                    // Send request to join group with student details
+                    fetch('/join-group', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            groupId: groupId,
+                            studentId: studentId,
+                            studentName: studentName  // You can add other student details here as needed
+                        }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Join request sent to the tutor!');
+                        } else {
+                            alert('There was an error sending your request.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Something went wrong.');
+                    });
+                });
+            });
+        });
+    </script>
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section connect">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="images/facebook.svg" alt="Facebook">
+                    </a>
+                    <a href="https://www.whatsapp.com" target="_blank">
+                        <img src="images/whatsapp.svg" alt="WhatsApp">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="images/instagram.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <img src="images/x-twitter.svg" alt="Twitter">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+                <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+                <p>Address: 123 Example St, City, Country</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Get Your Service Listed</a></li>
+                </ul>
+            </div>
+            <div class="footer-section subscribe">
+                <h3>Subscribe to Our Newsletter</h3>
+                <form action="#" method="post">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Reto Tech. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

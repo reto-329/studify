@@ -1,0 +1,149 @@
+/* ABOUT PAGE */
+
+.about-section {
+    max-width: 85%;
+    margin: 0 auto;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+.about-section h3 {
+    margin-bottom: 40px;
+    color: #333333;
+    font-size: 2.5em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.about-section p {
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    padding: 15px 0;
+    color: #444444;
+    font-weight: 500;
+}
+
+/* About Ad Section */
+.about-ad-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.ad-section2 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ad-section2 img {
+    width: 100%;
+    max-width: 500px; /* Max width for better layout control */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Soft shadow for effect */
+}
+
+.ad-section3 {
+    flex: 1;
+    padding: 20px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333333;
+}
+
+/* Additional Content Sections */
+.about-section-div1,
+.about-section > div:not(.about-ad-section) {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.about-section-div1 p,
+.about-section > div:not(.about-ad-section) p {
+    padding: 10px 0;
+}
+
+/* SUCCESS MESSAGE */
+.success-section {
+    text-align: center;
+    margin: 50px auto;
+    padding: 40px;
+    max-width: 600px;
+    background-color: #f4f9ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.success-section h2 {
+    color: #2e7d32;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.success-section p {
+    color: #333333;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.success-section .button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.success-section .button:hover {
+    background-color: #0056b3;
+}
+
+/* RESPONSIVE STYLES */
+@media (max-width: 768px) {
+    .about-section {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .about-section h3 {
+        font-size: 2em;
+    }
+
+    .about-section p {
+        padding: 10px 0;
+        font-size: 0.95em;
+    }
+
+    .about-ad-section {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .ad-section2 img {
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .ad-section3 {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .about-section-div1,
+    .about-section > div:not(.about-ad-section) {
+        padding: 15px;
+    }
+}

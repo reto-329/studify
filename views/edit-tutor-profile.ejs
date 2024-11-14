@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::Edit Tutor Profile::</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/reg.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    
+    <header class="header">
+        
+        <div class="header-div">
+            <img src="images/image.png" alt="Logo" width="200px" class="header-img">
+        </div>
+
+        <nav class="header-nav">
+            
+            <a href="/logout">Logout</a>
+        </nav>
+
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.header-nav');
+
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        });
+    </script>
+    
+    <section class="heading-section2">
+        <div class="heading-section-div1">
+            <h3>We Connect Students with Study Groups and Tutors.</h3>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div>
+            <form action="/edit-tutor-profile" method="post" enctype="multipart/form-data">
+                <h3>Edit Tutor Profile</h3>
+                <div class="form-section-div">
+                    <div class="form-group">
+                        <input type="text" name="fullName" value="<%= tutor.fullName %>" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phoneNumber" value="<%= tutor.phoneNumber %>" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" value="<%= tutor.email %>" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subjects" value="<%= tutor.subjects %>" placeholder="Subjects You Teach (e.g., Math, Physics)" required>
+                    </div>
+                    <div class="form-radio-group">
+                        <label class="label">Preferred Mode of Tutoring</label>
+                        <label>Online <input type="radio" name="tutoringMode" value="Online" <%= tutor.tutoringMode === 'Online' ? 'checked' : '' %> required></label>
+                        <label>In-Person <input type="radio" name="tutoringMode" value="In-Person" <%= tutor.tutoringMode === 'In-Person' ? 'checked' : '' %> required></label>
+                        <label>Both <input type="radio" name="tutoringMode" value="Both" <%= tutor.tutoringMode === 'Both' ? 'checked' : '' %> required></label>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="qualifications" placeholder="Your Qualifications" required><%= tutor.qualifications %></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="location" value="<%= tutor.location %>" placeholder="Location (City/State)" required>
+                    </div>
+                    <div class="form-check-group">
+                        <label class="label">Availability</label>
+                        <input type="checkbox" name="availability" value="Weekdays" <%= tutor.availability.includes('Weekdays') ? 'checked' : '' %>> Weekdays
+                        <input type="checkbox" name="availability" value="Weekends" <%= tutor.availability.includes('Weekends') ? 'checked' : '' %>> Weekends
+                        <input type="checkbox" name="availability" value="Evenings" <%= tutor.availability.includes('Evenings') ? 'checked' : '' %>> Evenings
+                    </div>
+                    <div class="form-group">
+                        <textarea name="experience" placeholder="Brief Teaching Experience" required><%= tutor.experience %></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="username" value="<%= tutor.username %>" placeholder="Preferred Username" required>
+                    </div>
+                    <div class="upload-btn-wrapper">
+                        <button class="btn">Upload Profile Picture</button>
+                        <input type="file" name="profilePicture">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Update Profile" class="button">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section connect">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="images/facebook.svg" alt="Facebook">
+                    </a>
+                    <a href="https://www.whatsapp.com" target="_blank">
+                        <img src="images/whatsapp.svg" alt="WhatsApp">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="images/instagram.svg" alt="Instagram">
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <img src="images/x-twitter.svg" alt="Twitter">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+                <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+                <p>Address: 123 Example St, City, Country</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Get Your Service Listed</a></li>
+                </ul>
+            </div>
+            <div class="footer-section subscribe">
+                <h3>Subscribe to Our Newsletter</h3>
+                <form action="#" method="post">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Reto Tech. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
