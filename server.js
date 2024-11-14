@@ -9,6 +9,7 @@ const express = require("express"),
     fs = require("fs"),
     nodemailer = require('nodemailer'),
     mongoStore = require('connect-mongo'),
+    MongoClient = require('mongodb').MongoClient;
     flash = require('connect-flash'),
     path = require("path"),
     app = express();
@@ -28,13 +29,13 @@ mongoose.connect(mongoDBUri, {
     .then(() => console.log("Connected to MongoDB Atlas"))
     .catch((error) => console.error("Error connecting to MongoDB Atlas:", error));
 
-const clientPromise = mongoClient.connect(process.env.MONGODB_URI, {
+const clientPromise = MongoClient.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
 
 app.use(session({
-    store: mongoStore.create({
+    store: MongoStore.create({
         clientPromise: clientPromise
     }),
     secret: 'yourSecret',
