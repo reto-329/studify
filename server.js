@@ -8,6 +8,7 @@ const express = require("express"),
     bcrypt = require("bcryptjs"),
     fs = require("fs"),
     nodemailer = require('nodemailer'),
+    const MongoStore = require('connect-mongo'),
     flash = require('connect-flash'),
     path = require("path"),
     app = express();
@@ -29,15 +30,13 @@ mongoose.connect(mongoDBUri, {
 
 
 // Session middleware
-const MongoStore = require('connect-mongo');
-
 app.use(session({
-    secret: process.env.SESSION_SECRET, // Use environment variable
-    resave: true,
-    saveUninitialized: true,
     store: MongoStore.create({
-        mongoUrl: mongoDBUri // Use environment variable
-    })
+        mongoUrl: process.env.MONGODB_URI
+    }),
+    secret: 'yourSecret',
+    resave: false,
+    saveUninitialized: true
 }));
 
 
