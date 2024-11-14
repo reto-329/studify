@@ -24,8 +24,5 @@
     "nodemailer": "^6.9.15",
     "path": "^0.12.7"
   },
-  "description": "",
-  "engines": {
-    "node": "18.x"
-  }
+  "description": ""
 }
