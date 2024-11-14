@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // Database connection
-const mongoDBUri = process.env.MONGODB_URI;
+const mongoDBUri = process.env.MONGODB_URI || "mongodb+srv://reromotabele4love:CHaysbv5o9vMd0h8@cluster0.eixnu.mongodb.net/studify-app";
 console.log("MongoDB URI:", mongoDBUri);
 
 mongoose.connect(mongoDBUri, {
