@@ -46,10 +46,18 @@
         </div>
     </section>
 
+
     <section class="login-container">
         <div class="login-form" id="student-login-form">
             <h3>Student Login</h3>
             <form action="/student_login" method="post">
+                <% if (error_msg) { %>
+                    <div class="alert alert-danger show"><%= error_msg %></div>
+                <% } else { %>
+                    <div class="alert alert-danger"></div>
+                <% } %>
+                
+                
                 <div class="form-group">
                     <input type="email" name="studentEmail" placeholder="Email" required>
                 </div>

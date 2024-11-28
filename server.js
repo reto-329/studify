@@ -9,7 +9,7 @@ const express = require("express"),
     nodemailer = require('nodemailer'),
     flash = require('connect-flash'),
     path = require("path"),
-    MongoStore = require('connect-mongo'), // moved to ensure it's accessible here
+    MongoStore = require('connect-mongo'),
     app = express();
 
 app.set("view engine", "ejs");
@@ -17,9 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // Database connection
-const mongoDBUri = process.env.MONGODB_URI || "mongodb+srv://reromotabele4love:CHaysbv5o9vMd0h8@cluster0.eixnu.mongodb.net/studify-app";
-console.log("MongoDB URI:", mongoDBUri);
-
+const mongoDBUri = process.env.MONGODB_URI;
 mongoose.connect(mongoDBUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -27,14 +25,26 @@ mongoose.connect(mongoDBUri, {
     .then(() => console.log("Connected to MongoDB Atlas"))
     .catch((error) => console.error("Error connecting to MongoDB Atlas:", error));
 
+// Session Middleware
 app.use(session({
     secret: process.env.SESSION_SECRET || 'mysecretkey',
-    resave: true,
+    resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
-        mongoUrl: mongoDBUri
+        mongoUrl: mongoDBUri,
     })
 }));
+
+// Connect-flash Middleware
+app.use(flash());
+
+// Global Variables for Flash Messages
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.message = req.flash('message'); // Optional for general messages
+    next();
+});
 
 // Defining tutor and student schemas
 const tutorSchema = new mongoose.Schema({
@@ -245,6 +255,17 @@ app.get("/student-registration", (req, res) => {
     res.render("student-registration");
 });
 
+// Student login page
+app.get("/student_login", (req, res) => {
+    res.render("student_login");
+});
+
+// Tutor login page
+app.get("/tutor_login", (req, res) => {
+    res.render("tutor_login");
+});
+
+
 // Student registration POST route
 app.post("/student-registration", async (req, res) => {
     const { fullName, email, phoneNumber, subjectsOfInterest, studyMode, location, availability, username, password, confirm_password } = req.body;
@@ -296,73 +317,68 @@ app.post("/student-registration", async (req, res) => {
 });
 
 
-//Student Login page
-app.get("/student_login", (req, res) => {
-    res.render("student_login");
-});
-
-
-//Tutor Login page
-app.get("/tutor_login", (req, res) => {
-    res.render("tutor_login");
-});
-
-// Tutor login POST route
-app.post("/tutor_login", async (req, res) => {
+app.post("/tutor_login", async (req, res) => { 
     const { tutorEmail, tutorPassword } = req.body;
     try {
         const tutor = await Tutor.findOne({ email: tutorEmail });
-        console.log("Tutor Found:", tutor); // Debugging line
+
         if (!tutor) {
-            req.flash('error_msg', "This email does not exist");
+            // Generic error message
+            req.flash('error_msg', "Invalid email or password");
             return res.redirect('/tutor_login');
         }
 
         const isVerified = await bcrypt.compare(tutorPassword, tutor.password);
-        if (isVerified) {
-            req.session.tutor_id = tutor._id;
-            req.session.tutor_name = tutor.fullName; // Store the tutor's name in the session
-            req.flash('message', 'Welcome to your dashboard!');
-            return res.redirect('/dashboard-tutor');
-        } else {
-            req.flash('error_msg', "Invalid password");
+
+        if (!isVerified) {
+            // Generic error message
+            req.flash('error_msg', "Invalid email or password");
             return res.redirect('/tutor_login');
         }
 
+        // Successful login
+        req.session.tutor_id = tutor._id;
+        req.session.tutor_name = tutor.fullName;
+        return res.redirect('/dashboard-tutor');
+
     } catch (err) {
         console.error("Error logging in tutor:", err); // Improved error logging
-        req.flash('error_msg', 'Error logging in');
+        req.flash('error_msg', 'An error occurred while trying to log in');
         return res.redirect('/tutor_login');
     }
 });
 
-// Student login POST route
+
 app.post("/student_login", async (req, res) => {
     const { studentEmail, studentPassword } = req.body;
     try {
         const student = await Student.findOne({ email: studentEmail });
-        console.log("Student Found:", student); // Debugging line
+
         if (!student) {
-            req.flash('error_msg', "This email does not exist");
+            // Generic error message
+            req.flash('error_msg', "Invalid email or password");
             return res.redirect('/student_login');
         }
 
         const isVerified = await bcrypt.compare(studentPassword, student.password);
-        if (isVerified) {
-            req.session.student_id = student._id;
-            req.flash('message', 'Welcome to your dashboard!');
-            return res.redirect('/dashboard-student');
-        } else {
-            req.flash('error_msg', "Invalid password");
+
+        if (!isVerified) {
+            // Generic error message
+            req.flash('error_msg', "Invalid email or password");
             return res.redirect('/student_login');
         }
 
+        // Successful login
+        req.session.student_id = student._id;
+        return res.redirect('/dashboard-student');
+
     } catch (err) {
         console.error("Error logging in student:", err); // Improved error logging
-        req.flash('error_msg', 'Error logging in');
+        req.flash('error_msg', 'An error occurred while trying to log in');
         return res.redirect('/student_login');
     }
 });
+
 
 
 // Tutor dashboard route
@@ -706,6 +722,16 @@ app.post('/edit-student-profile', async (req, res) => {
     }
 });
 
+
+
+app.get('/test-flash', (req, res) => {
+    req.flash('success_msg', 'Flash is working!');
+    res.redirect('/test-display');
+});
+
+app.get('/test-display', (req, res) => {
+    res.send(res.locals.success_msg || 'No flash message');
+});
 
 
 

@@ -79,3 +79,26 @@
 #tutor-login-form input[type="submit"]:hover {
     background-color: #b6581c;
 }
+
+/* Default hidden error message */
+.alert-danger {
+    display: none; /* Completely hide the element */
+    background-color: #fff; /* Light red background */
+    color: #721c24; /* Dark red text */
+    border: 1px solid #f5c6cb; /* Light red border */
+    padding: 15px;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 16px;
+    margin-top: 10px;
+    opacity: 0; /* Fully transparent */
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out; /* Smooth fade-in and slide effect */
+    transform: translateY(-10px); /* Initial slight slide from top */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Visible state (when error message exists) */
+.alert-danger.show {
+    display: block; /* Make the element visible */
+    opacity: 1; /* Fully opaque */
+    transform: translateY(0); /* Slide into place */
+}

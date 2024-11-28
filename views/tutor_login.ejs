@@ -46,11 +46,19 @@
             <h3>Connecting Students with Study Groups and Tutors.</h3>
         </div>
     </section>
+    
 
     <section class="login-container">
         <div class="login-form" id="tutor-login-form">
             <h3>Tutor Login</h3>
             <form action="/tutor_login" method="post">
+                <% if (error_msg) { %>
+                    <div class="alert alert-danger show"><%= error_msg %></div>
+                <% } else { %>
+                    <div class="alert alert-danger"></div>
+                <% } %>
+                
+                
                 <div class="form-group">
                     <input type="email" name="tutorEmail" placeholder="Email" required>
                 </div>

@@ -50,7 +50,10 @@
     <section class="form-section">
         <div>
             <form action="/edit-tutor-profile" method="post" enctype="multipart/form-data">
+                
                 <h3>Edit Tutor Profile</h3>
+                    <!-- Back Line -->
+                    <a href="javascript:history.back()" class="back-line">&larr; Back</a>
                 <div class="form-section-div">
                     <div class="form-group">
                         <input type="text" name="fullName" value="<%= tutor.fullName %>" placeholder="Full Name" required>
