@@ -218,19 +218,25 @@ body {
 }
 
 .ad-section {
-    margin: 3%; /* Remove any default margin */
-    padding: 3%; /* Remove any default padding */
+    margin: 0; /* Adjust margin as needed */
+    padding: 0; /* Adjust padding as needed */
 }
 
 .ad-section-div {
-    display: flex; /* Use flexbox for centering */    
+    display: flex; /* Use flexbox for centering */
     justify-content: center; /* Center the image horizontally */
-
+    align-items: center; /* Center the image vertically */
+    overflow: hidden; /* Prevent overflow of the image */
+    width: 100%; /* Ensure the section takes up full width */
 }
 
 .ad-image {
-    width: 500%;
+    width: 100%; /* Make the image take up 100% of the container width */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Prevent the image from exceeding the container width */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
 }
+
 
 
 
